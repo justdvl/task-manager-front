@@ -114,7 +114,10 @@ class App extends Component {
     console.log("props", this.props);
     return (
       <div className="App" style={{ position: "relative" }}>
-        <Tasks />
+        <Tasks
+          userSettings={this.props.userSettings}
+          action={this.props.action}
+        />
       </div>
     );
   }

@@ -41,4 +41,7 @@ export const USER_GET_ALL_FLAGGED = `${SERVER}/userSettings/flag/getAll`;
 
 export const DICT_GET_TOTALWORDS = `${SERVER}/dict/totalWords/get`;
 
-export const ADD_NEW_TASK = `${SERVER}/add-new-task`;
+export const ADD_NEW_TASK = `${SERVER}/task/add`;
+export const TASK_GET_ALL = `${SERVER}/task/get-all`;
+export const TASK_UPDATE = `${SERVER}/task/update`;
+export const TASK_COLOR_SET = `${SERVER}/task/color/set`;

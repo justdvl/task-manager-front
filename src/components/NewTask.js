@@ -15,7 +15,7 @@ export default class NewTask extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { text: "" };
+    this.state = { text: "", caption: "" };
   }
 
   add = async () => {
@@ -28,6 +28,7 @@ export default class NewTask extends Component {
         URL,
         {
           username: username,
+          caption: this.state.caption,
           text: this.state.text,
         },
         {
@@ -58,7 +59,11 @@ export default class NewTask extends Component {
     return (
       <Boss>
         <Header>
-          <Headline>New Task!</Headline>
+          <Headline
+            onChange={(e) => {
+              this.setState({ caption: e.target.value });
+            }}
+          />
 
           <Escape onClick={this.close}>X</Escape>
         </Header>

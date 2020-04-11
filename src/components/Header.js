@@ -132,10 +132,8 @@ function Header({ properties, Component, doLogout }) {
 
     setUserSettings(userData);
 
-    const languageTo = userData.toLanguage;
     const username = userData.username;
     console.log("userData", userData);
-    console.log("languagetTo", languageTo);
     //setCurrentLanguageTo(languageTo);
     //setusername(username);
   }
