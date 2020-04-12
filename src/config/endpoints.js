@@ -45,3 +45,4 @@ export const ADD_NEW_TASK = `${SERVER}/task/add`;
 export const TASK_GET_ALL = `${SERVER}/task/get-all`;
 export const TASK_UPDATE = `${SERVER}/task/update`;
 export const TASK_COLOR_SET = `${SERVER}/task/color/set`;
+export const TASK_REMOVE = `${SERVER}/task/remove`;

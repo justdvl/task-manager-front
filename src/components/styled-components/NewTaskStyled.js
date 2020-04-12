@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
 export const Boss = styled.div``;
+export const TaskWrap = styled.div`
+  width: 390px;
+  display: flex;
+  margin: 10px;
+  ${(props) => (props.moved ? `border 2px solid red` : ``)}
+`;
 export const TaskBoss = styled.div`
   width: 300px;
-  margin: 10px;
 `;
 export const Header = styled.div`
   display: flex;
@@ -47,6 +52,7 @@ export const TaskBody = styled.div`
   color: black;
   text-align: left;
   padding-left: 5px;
+  white-space: pre-line;
 `;
 
 export const TaskFooter = styled.div`
@@ -80,6 +86,19 @@ export const Escape = styled.div`
   text-align: center;
 `;
 
+export const TaskEscape = styled.div`
+  color: #222;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  width: 30px;
+  background: brown;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+`;
+
 export const Textarea = styled.textarea`
   height: 50px;
   width: 260px;
@@ -102,4 +121,31 @@ export const Save = styled.button`
   background: green;
   border: 1px solid darkgreen;
   cursor: pointer;
+`;
+
+export const ImageWrap = styled.div`
+  width: 85px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+`;
+
+export const ImageUpload = styled.button``;
+
+export const Image = styled.img`
+  height: 55px;
+  width: 85px;
+  margin-top: 3px;
+`;
+
+export const BigImage = styled.img`
+  max-width: 92%;
+  max-height: 90%;
+  position: fixed;
+  left: 4%;
+  top: 10px;
+  z-index: 21;
 `;

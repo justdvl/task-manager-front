@@ -205,14 +205,14 @@ function Header({ properties, Component, doLogout }) {
           LOGOUT
         </FloatRight>
         <Right>Hi, {userSettings.username}</Right>
-        <FloatRight
+        {/* <FloatRight
           onClick={() => {
             //window.location.href = "/settings";
             properties.history.push("/settings");
           }}
         >
           Settings
-        </FloatRight>
+        </FloatRight> */}
       </HeaderDiv>
       <div style={{ clear: "both" }}>
         <Component

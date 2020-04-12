@@ -40,6 +40,9 @@ export default class NewTask extends Component {
       )
       .then((response) => {
         console.log("response", response.data);
+
+        this.props.value.addNotification("info", "Task added", "", 3333);
+
         return response;
       })
       .catch((e) => {

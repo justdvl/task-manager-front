@@ -7,6 +7,7 @@ export const StackContext = React.createContext({ value: { stack: [] } });
 
 class StackContextProvider extends Component {
   constructor(props) {
+    console.log("StackContextProvider");
     super(props);
     this.state = {
       value: {
@@ -22,6 +23,7 @@ class StackContextProvider extends Component {
   }
 
   addNotification = (type, headline, text, timeout) => {
+    console.log(">>>>addNotification");
     const id = Math.floor(Math.random() * 100000);
     let values = this.state.value;
     values.stack.push({
@@ -72,6 +74,7 @@ export function withStackContext(Component) {
                   <NewTask
                     userSettings={props.userSettings}
                     changeAction={props.changeAction}
+                    value={value}
                   />
                 </Modal>
               )}

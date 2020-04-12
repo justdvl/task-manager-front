@@ -4,7 +4,7 @@ import "./App.css";
 import axios from "axios";
 import { withStackContext } from "./utils/StackProvider";
 import Tasks from "./components/Tasks.js";
-
+import Notification from "./components/Notification";
 const ALREADY_EXISTS = "ALREADY_EXISTS";
 
 class App extends Component {
@@ -118,6 +118,8 @@ class App extends Component {
           userSettings={this.props.userSettings}
           action={this.props.action}
         />
+
+        <Notification stack={this.props.value.value} />
       </div>
     );
   }
