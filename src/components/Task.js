@@ -4,6 +4,7 @@ import {
   TASK_UPDATE,
   TASK_COLOR_SET,
   TASK_REMOVE,
+  UPLOAD_IMG,
 } from "./../config/endpoints";
 import {
   TaskBoss,
@@ -171,18 +172,16 @@ class Task extends Component {
     formData.append("profileImg", e.target.files[0]);
     formData.append("_id", this.props.taskInfo._id);
     console.log("saving file _id", this.props.taskInfo._id);
-    axios
-      .post("http://localhost:8000/api/user-profile", formData, {})
-      .then((res) => {
-        console.log(res);
-        this.props.getAllTasks();
-        this.props.value.addNotification(
-          "info",
-          "img uploaded",
-          "hope all went well",
-          3000
-        );
-      });
+    axios.post(UPLOAD_IMG, formData, {}).then((res) => {
+      console.log(res);
+      this.props.getAllTasks();
+      this.props.value.addNotification(
+        "info",
+        "img uploaded",
+        "hope all went well",
+        3000
+      );
+    });
   };
 
   //   onSubmit = (e) => {

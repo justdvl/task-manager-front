@@ -54,3 +54,5 @@ export const TASK_UPDATE = `${SERVER}/task/update`;
 export const TASK_COLOR_SET = `${SERVER}/task/color/set`;
 export const TASK_REMOVE = `${SERVER}/task/remove`;
 export const TASK_SORT = `${SERVER}/task/sort`;
+
+export const UPLOAD_IMG = `${SERVER}/api/user-profile`;
