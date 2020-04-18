@@ -1,8 +1,8 @@
 const PRODUCTION_MODE = process.env.ll === "production";
 
-let SERVER = "localhost:8080";
+let SERVER = "158.195.108.7:8080";
 if (PRODUCTION_MODE) {
-  SERVER = "localhost:8080";
+  SERVER = "158.195.108.7:8080";
   console.log("prod");
 } else {
   console.log("not prod");
