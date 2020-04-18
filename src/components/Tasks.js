@@ -43,7 +43,7 @@ export default class Tasks extends Component {
     const URL = TASK_GET_ALL;
     const username = this.props.userSettings.username;
 
-    const response = await axios
+    await axios
       .post(
         URL,
         {
@@ -328,7 +328,7 @@ export default class Tasks extends Component {
     const URL = TASK_SORT;
     const username = this.props.userSettings.username;
 
-    const response = await axios
+    await axios
       .post(
         URL,
         {

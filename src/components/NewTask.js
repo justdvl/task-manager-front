@@ -23,7 +23,7 @@ export default class NewTask extends Component {
     const URL = ADD_NEW_TASK;
     const username = this.props.userSettings.username;
 
-    const response = await axios
+    await axios
       .post(
         URL,
         {

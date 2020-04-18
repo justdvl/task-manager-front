@@ -24,10 +24,6 @@ const Templates = styled(Button)`
   margin-right: 5px;
 `;
 
-const Language = styled.select`
-  margin-bottom: 2px;
-`;
-
 const FloatRight = styled(Button)`
   float: right;
 `;
@@ -50,7 +46,7 @@ async function logoutCall(doLogout) {
   const url = LOGOUT_USER;
   const cookies = new Cookies();
   const data = { auth: cookies.get("userToken") };
-  const ret = await axios
+  await axios
     .post(url, data, {
       headers: {
         "Content-Type": "application/json",
@@ -132,7 +128,6 @@ function Header({ properties, Component, doLogout }) {
 
     setUserSettings(userData);
 
-    const username = userData.username;
     console.log("userData", userData);
     //setCurrentLanguageTo(languageTo);
     //setusername(username);
@@ -153,7 +148,7 @@ function Header({ properties, Component, doLogout }) {
     };
     const url = USER_SETTINGS_SET;
 
-    const ret = await axios
+    await axios
       .post(url, data, {
         headers: {
           "Content-Type": "application/json",

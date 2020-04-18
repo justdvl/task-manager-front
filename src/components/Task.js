@@ -6,16 +6,11 @@ import {
   TASK_REMOVE,
 } from "./../config/endpoints";
 import {
-  Boss,
   TaskBoss,
   Header,
-  Headline,
   TaskEscape,
-  Body,
   TaskBody,
   TaskFooter,
-  Textarea,
-  Add,
   Autor,
   Time,
   TaskHeadline,
@@ -25,7 +20,6 @@ import {
   ColorDiv,
   TaskWrap,
   ImageWrap,
-  ImageUpload,
   Image,
   BigImage,
   DraggableHeadline,
@@ -78,7 +72,7 @@ class Task extends Component {
     const URL = TASK_UPDATE;
     const username = this.props.userSettings.username;
 
-    const response = await axios
+    await axios
       .post(
         URL,
         {
@@ -116,7 +110,7 @@ class Task extends Component {
     const URL = TASK_COLOR_SET;
     const color = e.target.value;
 
-    const response = await axios
+    await axios
       .post(
         URL,
         {
@@ -143,7 +137,7 @@ class Task extends Component {
   removeTask = async (_id) => {
     const URL = TASK_REMOVE;
 
-    const response = await axios
+    await axios
       .post(
         URL,
         {

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "./App.css";
-import axios from "axios";
 import { withStackContext } from "./utils/StackProvider";
 import Tasks from "./components/Tasks.js";
 import Notification from "./components/Notification";
-const ALREADY_EXISTS = "ALREADY_EXISTS";
 
 class App extends Component {
   constructor(props) {

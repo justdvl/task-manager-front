@@ -7,7 +7,7 @@ export const StackContext = React.createContext({ value: { stack: [] } });
 
 class StackContextProvider extends Component {
   constructor(props) {
-    console.log("StackContextProvider");
+    console.log("StackContextProvider x");
     super(props);
     this.state = {
       value: {

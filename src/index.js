@@ -7,7 +7,7 @@ import * as serviceWorker from "./serviceWorker";
 document.addEventListener(
   "keydown",
   function (e) {
-    if (e.keyCode == 119) {
+    if (e.keyCode === 119) {
       // F8
       debugger;
     }

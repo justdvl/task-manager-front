@@ -3,6 +3,9 @@ const PRODUCTION_MODE = process.env.NODE_ENV === "production";
 let SERVER = "http://localhost:8080";
 if (PRODUCTION_MODE) {
   SERVER = "158.195.108.7:8080";
+  console.log("prod");
+} else {
+  console.log("not prod");
 }
 
 export const SERVER_URL = SERVER;
