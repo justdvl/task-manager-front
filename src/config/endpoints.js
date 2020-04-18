@@ -6,7 +6,7 @@ console.log("PROD MODE", PRODUCTION_MODE);
 
 let SERVER = "http://localhost:8080";
 if (PRODUCTION_MODE) {
-  SERVER = "http://158.195.108.7:8080";
+  SERVER = "http://158.195.108.7/back";
   console.log("prod");
 } else {
   console.log("not prod");
