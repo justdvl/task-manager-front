@@ -2,11 +2,12 @@ const PRODUCTION_MODE = process.env.NODE_ENV === "production";
 
 console.log("process.env", process.env);
 console.log("process.env node", process.env.NODE_ENV);
+console.log("process.env.SERVER_IP", process.env.SERVER_IP);
 console.log("PROD MODE", PRODUCTION_MODE);
 
 let SERVER = "http://localhost:8080";
 if (PRODUCTION_MODE) {
-  SERVER = "http://158.195.108.7/back";
+  SERVER = "http://64.225.110.242/back";
   console.log("prod");
 } else {
   console.log("not prod");
