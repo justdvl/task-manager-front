@@ -303,7 +303,7 @@ class Task extends Component {
             {/* <ImageUpload>Upload img</ImageUpload> */}
             {this.props.taskInfo.img && (
               <Image
-                src={"/public/" + this.props.taskInfo.img}
+                src={this.props.taskInfo.img}
                 onClick={() => {
                   this.setState({ bigImgOpen: true });
                 }}
