@@ -1,8 +1,8 @@
 const PRODUCTION_MODE = process.env.NODE_ENV === "production";
 
-let SERVER = "http://localhost:8000";
+let SERVER = "http://localhost:8080";
 if (PRODUCTION_MODE) {
-  SERVER = "";
+  SERVER = "158.195.108.7:8080";
 }
 
 export const SERVER_URL = SERVER;
@@ -46,3 +46,4 @@ export const TASK_GET_ALL = `${SERVER}/task/get-all`;
 export const TASK_UPDATE = `${SERVER}/task/update`;
 export const TASK_COLOR_SET = `${SERVER}/task/color/set`;
 export const TASK_REMOVE = `${SERVER}/task/remove`;
+export const TASK_SORT = `${SERVER}/task/sort`;

@@ -28,15 +28,16 @@ import {
   ImageUpload,
   Image,
   BigImage,
+  DraggableHeadline,
 } from "./styled-components/NewTaskStyled";
 import { withStackContext } from "./../utils/StackProvider";
 import { withRouter } from "react-router-dom";
 
 const COLORS = [
-  "red",
-  "green",
+  "Red",
+  "Green",
   "LimeGreen",
-  "indigo",
+  "Indigo",
   "LightSeaGreen",
   "SteelBlue",
   "DodgerBlue",
@@ -131,7 +132,7 @@ class Task extends Component {
       )
       .then((response) => {
         console.log("response", response.data);
-
+        this.props.getAllTasks();
         return response;
       })
       .catch((e) => {
@@ -170,11 +171,12 @@ class Task extends Component {
   };
 
   onFileChange = (e) => {
-    this.setState({ profileImg: e.target.files[0] });
+    // this.setState({ profileImg: e.target.files[0] });
 
     const formData = new FormData();
     formData.append("profileImg", e.target.files[0]);
     formData.append("_id", this.props.taskInfo._id);
+    console.log("saving file _id", this.props.taskInfo._id);
     axios
       .post("http://localhost:8000/api/user-profile", formData, {})
       .then((res) => {
@@ -203,8 +205,6 @@ class Task extends Component {
   //   };
 
   render() {
-    console.log("taskInfo", this.props.taskInfo);
-    console.log("props", this.props);
     let d = new Date(this.props.taskInfo.createdAt);
     return (
       <div>
@@ -222,13 +222,18 @@ class Task extends Component {
               >
                 {this.props.taskInfo.caption}
               </TaskHeadline>
+              <DraggableHeadline
+                ref={(ref) => this.props.refe(ref)}
+                onMouseDown={(e) =>
+                  this.props.onMouseDown(e, this.props.taskInfo._id)
+                }
+                onMouseUp={this.props.onMouseUp}
+              ></DraggableHeadline>
               <ColorDiv>
                 <select
+                  defaultValue={this.props.taskInfo.color}
                   onChange={(e) => this.colorChange(e, this.props.taskInfo._id)}
                 >
-                  <option selected hidden>
-                    Change color
-                  </option>{" "}
                   {COLORS.map((c) => (
                     <option key={c} style={{ color: c }}>
                       {c}
@@ -256,13 +261,7 @@ class Task extends Component {
             >
               {this.props.taskInfo.text}
             </TaskBody>
-            <TaskFooter
-              onMouseDown={(e) =>
-                this.props.onMouseDown(e, this.props.taskInfo._id)
-              }
-              onMouseUp={this.props.onMouseUp}
-              ref={(ref) => this.props.refe(ref)}
-            >
+            <TaskFooter>
               <Autor>by: {this.props.taskInfo.username}</Autor>
               <Time>
                 {d.toLocaleDateString()}, {d.toLocaleTimeString()}
@@ -285,23 +284,39 @@ class Task extends Component {
                   Save
                 </Save>
               </SaveCancel>
-            )}
+            )}{" "}
           </TaskBoss>
           <ImageWrap onSubmit={this.onSubmit}>
+            <label
+              htmlFor={`file-${this.props.taskInfo._id}`}
+              style={{
+                fontSize: 12,
+                userSelect: "none",
+                border: "1px solid #777",
+                padding: "1px 4px 2px 4px",
+                marginTop: "1px",
+              }}
+            >
+              Select Image
+            </label>
+
             <input
               type="file"
-              style={{ width: "100%" }}
+              id={`file-${this.props.taskInfo._id}`}
+              style={{ visibility: "hidden", display: "none" }}
               onChange={this.onFileChange}
             />
 
             {/* <ImageUpload>Upload img</ImageUpload> */}
-            <Image
-              src={this.props.taskInfo.img}
-              onClick={() => {
-                this.setState({ bigImgOpen: true });
-              }}
-              style={{ cursor: "zoom-in" }}
-            />
+            {this.props.taskInfo.img && (
+              <Image
+                src={this.props.taskInfo.img}
+                onClick={() => {
+                  this.setState({ bigImgOpen: true });
+                }}
+                style={{ cursor: "zoom-in" }}
+              />
+            )}
           </ImageWrap>
         </TaskWrap>
 

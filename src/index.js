@@ -4,6 +4,19 @@ import "./index.css";
 import RouterWrapper from "./RouterWrapper";
 import * as serviceWorker from "./serviceWorker";
 
+document.addEventListener(
+  "keydown",
+  function (e) {
+    if (e.keyCode == 119) {
+      // F8
+      debugger;
+    }
+  },
+  {
+    capture: true,
+  }
+);
+
 ReactDOM.render(<RouterWrapper />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change

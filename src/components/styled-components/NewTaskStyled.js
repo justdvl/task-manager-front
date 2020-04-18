@@ -29,6 +29,7 @@ export const Headline = styled.input`
   text-align: left;
   font-size: 14px;
   width: calc(100% - 42px);
+  min-width: 50px;
 `;
 
 export const TaskHeadline = styled.div`
@@ -39,7 +40,7 @@ export const TaskHeadline = styled.div`
 
   text-align: left;
   font-size: 14px;
-  width: calc(100% - 4px);
+  min-width: 50px;
 `;
 
 export const Body = styled.div`
@@ -136,8 +137,8 @@ export const ImageWrap = styled.div`
 export const ImageUpload = styled.button``;
 
 export const Image = styled.img`
-  height: 55px;
-  width: 85px;
+  max-height: 90px;
+  max-width: 85px;
   margin-top: 3px;
 `;
 
@@ -148,4 +149,9 @@ export const BigImage = styled.img`
   left: 4%;
   top: 10px;
   z-index: 21;
+`;
+
+export const DraggableHeadline = styled.div`
+  display: flex;
+  flex-grow: 1;
 `;

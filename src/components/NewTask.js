@@ -30,6 +30,7 @@ export default class NewTask extends Component {
           username: username,
           caption: this.state.caption,
           text: this.state.text,
+          color: "Gray",
         },
         {
           headers: {

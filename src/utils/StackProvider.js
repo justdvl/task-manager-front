@@ -62,11 +62,9 @@ export default StackContextProvider;
 
 export function withStackContext(Component) {
   return function StackComponent(props) {
-    console.log("StackComponent props", props);
     return (
       <StackContext.Consumer>
         {(value) => {
-          console.log("stack value", value);
           return (
             <div style={{ position: "relative" }}>
               {props.action === "addNewTask" && (
