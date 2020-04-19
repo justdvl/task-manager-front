@@ -49,34 +49,23 @@ function LoginForm(props) {
 
     const LoginUserData = {
       username: name,
-      password: pass
+      password: pass,
     };
 
-    //         const data = new FormData();
-    //         data.append('data', JSON.stringify(LoginUserData));
-    // console.log("data",data)
     const data = JSON.stringify(LoginUserData);
     axios
       .post(url, data, {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        withCredentials: true
+        withCredentials: true,
       })
-      .then(res => {
-        // window.location.reload()
-        console.log("res", res);
-
-        // setTimeout(() => {
-        //     props.history.push(comingFrom);
-        // },100)
-
+      .then((res) => {
         const cookies = new Cookies();
         cookies.set("userToken", res.data.userToken, { path: "/" });
-        console.log(cookies.get("userToken"));
         props.loginSuccess();
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("I got error!", error, error.name + error.message);
         if (error.message.includes("401")) {
           setError(401);
@@ -91,7 +80,7 @@ function LoginForm(props) {
       style={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
       <div style={{ padding: 20 }}>
@@ -111,7 +100,7 @@ function LoginForm(props) {
                     tyle="text"
                     name="name"
                     autocomplete="username"
-                    onChange={e => setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                     onKeyPress={keyPressed}
                   />
                 </Td>
@@ -123,7 +112,7 @@ function LoginForm(props) {
                     type="password"
                     name="password"
                     autocomplete="current-password"
-                    onChange={e => setPass(e.target.value)}
+                    onChange={(e) => setPass(e.target.value)}
                     onKeyPress={keyPressed}
                   />
                 </Td>

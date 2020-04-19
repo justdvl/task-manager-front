@@ -166,8 +166,6 @@ class Task extends Component {
   };
 
   onFileChange = (e) => {
-    // this.setState({ profileImg: e.target.files[0] });
-
     const formData = new FormData();
     formData.append("profileImg", e.target.files[0]);
     formData.append("_id", this.props.taskInfo._id);
@@ -183,19 +181,6 @@ class Task extends Component {
       );
     });
   };
-
-  //   onSubmit = (e) => {
-  //     e.preventDefault();
-  //     const formData = new FormData();
-  //     formData.append("profileImg", this.state.profileImg);
-  //     formData.append("_id", this.props.taskInfo._id);
-  //     axios
-  //       .post("http://localhost:8000/api/user-profile", formData, {})
-  //       .then((res) => {
-  //         console.log(res);
-  //         this.props.getAllTasks();
-  //       });
-  //   };
 
   render() {
     let d = new Date(this.props.taskInfo.createdAt);

@@ -19,7 +19,6 @@ export default class NewTask extends Component {
   }
 
   add = async () => {
-    console.log("add", this.state.text);
     const URL = ADD_NEW_TASK;
     const username = this.props.userSettings.username;
 
@@ -40,8 +39,6 @@ export default class NewTask extends Component {
         }
       )
       .then((response) => {
-        console.log("response", response.data);
-
         this.props.value.addNotification("info", "Task added", "", 3333);
 
         return response;
@@ -50,12 +47,10 @@ export default class NewTask extends Component {
         console.warn(e);
       });
 
-    console.log("sent");
     this.close();
   };
 
   close = () => {
-    console.log("close");
     this.props.changeAction("");
   };
 

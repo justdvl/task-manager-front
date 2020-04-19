@@ -70,10 +70,6 @@ const getUserSettings = async (typeArr) => {
   const cookies = new Cookies();
   const data = { auth: cookies.get("userToken") };
 
-  //   if (type === "toLanguage") {
-  //   }
-  //   if (type === "choicesCount") {
-  //   }
   data.type = JSON.stringify(typeArr);
   const ret = await axios
     .post(url, data, {
@@ -100,10 +96,6 @@ function Header({ properties, Component, doLogout }) {
 
   const [userSettings, setUserSettings] = React.useState({
     username: "?",
-    choicesCount: 4,
-    toLanguage: "fr",
-    fromLanguage: "en",
-    flaggedWords: [],
   });
 
   const [currentAction, setCurrentAction] = React.useState("");
@@ -116,21 +108,9 @@ function Header({ properties, Component, doLogout }) {
   };
 
   async function fetchMyAPI() {
-    const userData = await getUserSettings([
-      "username",
-      "toLanguage",
-      "fromLanguage",
-      "choicesCount",
-      "flaggedWords",
-      "positions",
-      "moveSpeed",
-    ]);
+    const userData = await getUserSettings(["username"]);
 
     setUserSettings(userData);
-
-    console.log("userData", userData);
-    //setCurrentLanguageTo(languageTo);
-    //setusername(username);
   }
 
   useEffect(() => {
@@ -138,7 +118,6 @@ function Header({ properties, Component, doLogout }) {
   }, []);
 
   const changeUserSettings = async (type, value) => {
-    console.log("e value", value);
     const cookies = new Cookies();
 
     const data = {
@@ -156,12 +135,12 @@ function Header({ properties, Component, doLogout }) {
         withCredentials: true,
       })
       .then(() => {
-        console.log("language to call success");
+        console.log("changeUserSettings to call success");
         fetchMyAPI();
         return true;
       })
       .catch((error) => {
-        console.log("language to call error");
+        console.log("changeUserSettings to call error");
         return false;
       });
   };
