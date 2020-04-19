@@ -4,9 +4,9 @@ const SERVER_IP = process.env.SERVER_IP;
 let SERVER = "http://localhost:8080";
 if (PRODUCTION_MODE) {
   SERVER = SERVER_IP;
-  console.log("prod");
+  console.log("prod", SERVER);
 } else {
-  console.log("not prod");
+  console.log("not prod", SERVER);
 }
 
 export const SERVER_URL = SERVER;
