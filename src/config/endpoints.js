@@ -1,9 +1,8 @@
 const PRODUCTION_MODE = process.env.NODE_ENV === "production";
-const SERVER_IP = process.env.SERVER_IP;
 
 let SERVER = "http://localhost:8080";
 if (PRODUCTION_MODE) {
-  SERVER = SERVER_IP;
+  SERVER = "back";
   console.log("prod", SERVER);
 } else {
   console.log("not prod", SERVER);
