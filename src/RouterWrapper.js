@@ -3,13 +3,15 @@ import Routes from "./utils/Routes";
 import { BrowserRouter } from "react-router-dom";
 import ContextProvider from "./utils/ContextProvider";
 import StackContextProvider from "./utils/StackProvider";
+import Headline from './components/Headline';
 
 const RouterWrapper = () => {
   return (
     <BrowserRouter>
       <ContextProvider>
         <StackContextProvider>
-          <Routes />
+            <Headline />
+            <Routes />
         </StackContextProvider>
       </ContextProvider>
     </BrowserRouter>

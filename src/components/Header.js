@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-
 import {
   LOGOUT_USER,
   USER_SETTINGS_GET,
