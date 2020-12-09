@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import Authenticate from "./common/Authenticate";
 import { ErrorDiv } from "./common/styled-components";
 import Cookies from "universal-cookie";
-const REACT_APP_SUBDIRECTORY = "process.env.REACT_APP_SUBDIRECTORY";
+const REACT_APP_SUBDIRECTORY = process.env.REACT_APP_SUBDIRECTORY;
 
 const Td = styled.td`
   border: 0px;
