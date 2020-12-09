@@ -4,10 +4,11 @@ import { BrowserRouter } from "react-router-dom";
 import ContextProvider from "./utils/ContextProvider";
 import StackContextProvider from "./utils/StackProvider";
 import Headline from './components/Headline';
+const REACT_APP_SUBDIRECTORY = process.env.REACT_APP_SUBDIRECTORY;
 
 const RouterWrapper = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={REACT_APP_SUBDIRECTORY}>
       <ContextProvider>
         <StackContextProvider>
             <Headline />
