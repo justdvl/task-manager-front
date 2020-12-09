@@ -6,6 +6,7 @@ import { withRouter } from "react-router-dom";
 import Authenticate from "./common/Authenticate";
 import { ErrorDiv } from "./common/styled-components";
 import Cookies from "universal-cookie";
+const REACT_APP_SUBDIRECTORY = process.env.REACT_APP_SUBDIRECTORY;
 
 const Td = styled.td`
   border: 0px;
@@ -23,12 +24,13 @@ const Input = styled.input`
 `;
 
 function LoginForm(props) {
-  let [name, setName] = useState("");
+  let [email, setEmail] = useState("");
   let [pass, setPass] = useState("");
   let [error, setError] = useState(0);
 
-  if (props.history.location.pathname !== "/login") {
-    props.history.push("/login");
+  console.log("SUBDIRECTORY", REACT_APP_SUBDIRECTORY)
+  if (!props.history.location.pathname.includes("login")) {
+    props.history.push(REACT_APP_SUBDIRECTORY + "/login");
   }
 
   function keyPressed(e) {
@@ -48,7 +50,7 @@ function LoginForm(props) {
     const url = USER_LOGIN;
 
     const LoginUserData = {
-      username: name,
+      email: email,
       password: pass,
     };
 
@@ -94,13 +96,13 @@ function LoginForm(props) {
           <table>
             <tbody>
               <tr>
-                <Td>name: </Td>
+                <Td>email: </Td>
                 <Td>
                   <Input
                     tyle="text"
-                    name="name"
-                    autocomplete="username"
-                    onChange={(e) => setName(e.target.value)}
+                    name="email"
+                    autocomplete="email"
+                    onChange={(e) => setEmail(e.target.value)}
                     onKeyPress={keyPressed}
                   />
                 </Td>

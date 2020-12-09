@@ -6,6 +6,7 @@ import { withRouter } from "react-router-dom";
 import Authenticate from "./common/Authenticate";
 import { ErrorDiv } from "./common/styled-components";
 import Cookies from "universal-cookie";
+const REACT_APP_SUBDIRECTORY = process.env.REACT_APP_SUBDIRECTORY;
 
 const Td = styled.td`
   border: 0px;
@@ -28,8 +29,8 @@ function SignUpForm(props) {
   let [pass, setPass] = useState("");
   let [error, setError] = useState(0);
 
-  if (props.history.location.pathname !== "/signup") {
-    props.history.push("/signup");
+  if (!props.history.location.pathname.includes("signup")) {
+    props.history.push(REACT_APP_SUBDIRECTORY + "/signup");
   }
 
   function keyPressed(e) {

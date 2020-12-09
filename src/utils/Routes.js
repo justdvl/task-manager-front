@@ -6,6 +6,7 @@ import App from "../App";
 import LoginForm from "../components/LoginForm.js";
 import SignUpForm from "../components/SignUpForm.js";
 import Authenticate from "../components/common/Authenticate";
+const REACT_APP_SUBDIRECTORY = process.env.REACT_APP_SUBDIRECTORY;
 
 //classic route plus logout functionality
 function CustomRoute({ path, component, doLogout }) {
@@ -54,7 +55,7 @@ class Routes extends React.Component {
 
   loginSuccess = () => {
     setTimeout(() => {
-      this.props.history.push("/");
+      this.props.history.push(REACT_APP_SUBDIRECTORY);
     }, 500);
     setTimeout(() => {
       this.authenticate();
