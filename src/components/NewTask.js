@@ -10,6 +10,7 @@ import {
   Textarea,
   Add,
 } from "./styled-components/NewTaskStyled";
+import { COLORS } from './Task';
 
 export default class NewTask extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ export default class NewTask extends Component {
           username: username,
           caption: this.state.caption,
           text: this.state.text,
-          color: "Gray",
+          color: COLORS[Math.floor(Math.random()*COLORS.length-1)],
         },
         {
           headers: {

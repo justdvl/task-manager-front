@@ -28,7 +28,7 @@ import {
 import { withStackContext } from "./../utils/StackProvider";
 import { withRouter } from "react-router-dom";
 
-const COLORS = [
+export const COLORS = [
   "Red",
   "Green",
   "LimeGreen",
